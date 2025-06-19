@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Классический тренажёр печати</title>
+    <meta name="description" content="Тренажёр для обучения слепой печати с текстами из классической литературы">
+    <meta name="keywords" content="обучение печати, слепая печать, классика, литература">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="header">
+    <h1>Цитата дня:</h1>
+    <div id="quote"></div>
+</div>
+
+<div id="content">
+    <form id="textform">
+        <input type="text" id="intext" autocomplete="off" spellcheck="false" placeholder="Печатайте здесь...">
+    </form>
+
+    <div id="stats">
+        <p><strong>Скорость печати:</strong> <span id="speed">0</span> символов/мин</p>
+        <p><strong>Ошибок:</strong> <span id="errors">0</span>%</p>
+    </div>
+
+    <h2>История результатов (последние 10 попыток):</h2>
+    <table id="history">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Скорость (сим./мин)</th>
+                <th>Ошибки (%)</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="quotes.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
