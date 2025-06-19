@@ -8,6 +8,16 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <div class="animated-background">
+        <div class="shape wave"></div>
+        <div class="shape circle"></div>
+        <div class="shape cloud"></div>
+        <div class="shape wave delay1"></div>
+        <div class="shape circle delay2"></div>
+        <div class="shape cloud delay3"></div>
+    </div>
+
 <div id="header">
     <h1>Цитата дня:</h1>
     <div id="quote"></div>
@@ -20,23 +30,26 @@
 
     <div id="stats">
         <p><strong>Скорость печати:</strong> <span id="speed">0</span> символов/мин</p>
-        <p><strong>Ошибок:</strong> <span id="errors">0</span>%</p>
+        <p><strong>Точность:</strong> <span id="accuracy">0</span>%</p>
     </div>
 
-    <h2>История результатов (последние 10 попыток):</h2>
+    <div class="history-section-header">
+        <h2>История результатов (последние 10 попыток):</h2>
+        <button id="clearHistoryBtn">Очистить историю</button>
+    </div>
+    
     <table id="history">
         <thead>
             <tr>
                 <th>#</th>
                 <th>Скорость (сим./мин)</th>
-                <th>Ошибки (%)</th>
-            </tr>
+                <th>Точность (%)</th> </tr>
         </thead>
         <tbody></tbody>
     </table>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="quotes.js"></script>
 <script src="app.js"></script>
 </body>

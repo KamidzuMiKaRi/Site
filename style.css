@@ -1,30 +1,153 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Более современный системный шрифт */
+    background-color: #e48e8e;
     padding: 20px;
     max-width: 960px;
     margin: auto;
+    line-height: 1.6; /* Улучшает читаемость больших блоков текста */
+    color: #333; /* Более темный текст для лучшего контраста */
 }
 
-#header {
-    margin-bottom: 30px;
+/* Контейнер для анимированных фигур */
+.animated-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+    background: linear-gradient(135deg, #e0f2f7 0%, #c1e4f4 100%);
+}
+
+/* Общие стили для всех анимированных фигур */
+.shape {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.5);
+    opacity: 0;
+    /* Убираем animation-duration и animation-delay отсюда, будем задавать для каждого типа */
+}
+
+/* Размеры и формы */
+.wave {
+    width: 300px;
+    height: 150px;
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+    background-color: rgba(179, 229, 252, 0.6);
+    animation: moveWave 25s infinite linear; /* Своя анимация */
+}
+
+.circle {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: rgba(255, 240, 190, 0.7);
+    animation: moveCircle 18s infinite linear; /* Своя анимация */
+}
+
+.cloud {
+    width: 250px;
+    height: 80px;
+    border-radius: 50px;
+    background-color: rgba(255, 255, 255, 0.7);
+    box-shadow: 
+        50px -20px 0 10px rgba(255, 255, 255, 0.7), 
+        -30px -30px 0 15px rgba(255, 255, 255, 0.7);
+    animation: moveCloud 30s infinite linear; /* Своя анимация */
+}
+
+/* Задержки (опционально, если хотим, чтобы некоторые элементы появлялись позже) */
+.delay1 { animation-delay: 5s !important; }
+.delay2 { animation-delay: 10s !important; }
+.delay3 { animation-delay: 15s !important; }
+
+
+/* Анимации для каждого типа фигур */
+
+@keyframes moveWave {
+    0% {
+        left: -10%; /* Начинаем за левым краем */
+        top: 20%;
+        transform: scale(0.6);
+        opacity: 0;
+    }
+    20% { opacity: 0.7; }
+    80% { opacity: 0.7; }
+    100% {
+        left: 110%; /* Уходим за правый край */
+        top: 70%; /* Двигаемся вниз */
+        transform: scale(1.2);
+        opacity: 0;
+    }
+}
+
+@keyframes moveCircle {
+    0% {
+        left: 80%; /* Начинаем сверху справа */
+        top: -10%;
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    20% { opacity: 0.8; }
+    80% { opacity: 0.8; }
+    100% {
+        left: 10%; /* Уходим вниз влево */
+        top: 110%;
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+@keyframes moveCloud {
+    0% {
+        left: 10%; /* Начинаем снизу слева */
+        top: 110%;
+        transform: scale(0.7);
+        opacity: 0;
+    }
+    20% { opacity: 0.6; }
+    80% { opacity: 0.6; }
+    100% {
+        left: 90%; /* Уходим вверх вправо */
+        top: -10%;
+        transform: scale(1.3);
+        opacity: 0;
+    }
+}
+
+
+
+
+h1 {
+    font-family: 'Georgia', serif; /* Классический шрифт с засечками для заголовка */
+    font-weight: bold;
+    color: #222; /* Темнее для заголовка */
 }
 
 #quote {
-    font-size: 1.5em;
+    font-family: 'Palatino Linotype', 'Book Antiqua', Palatino, serif; /* Элегантный шрифт с засечками для цитат */
+    font-size: 1.6em; /* Немного увеличим размер */
     color: #333;
     border-left: 5px solid #ff6b00;
     padding-left: 20px;
     margin-top: 10px;
+    font-style: italic; /* Курсив для цитаты */
 }
 
 #intext {
     width: 100%;
     padding: 15px;
-    font-size: 1.2em;
+    font-size: 1.3em; /* Немного больше, для лучшей читаемости во время ввода */
     border: 2px solid #ccc;
     border-radius: 5px;
     margin-top: 20px;
+    font-family: 'Consolas', 'Lucida Console', monospace; /* Моноширинный шрифт для поля ввода */
+    letter-spacing: 0.02em; /* Небольшой межбуквенный интервал для лучшей читаемости */
+}
+
+/* Остальные стили без изменений, но убедитесь, что они есть */
+#header {
+    margin-bottom: 30px;
 }
 
 #stats {
@@ -46,4 +169,33 @@ body {
 
 #history th {
     background-color: #eee;
+}
+
+/* Добавляем стили для кнопки истории, если ее еще нет */
+.history-section-header {
+    display: flex;
+    justify-content: space-between; /* Распределяет элементы по краям */
+    align-items: center; /* Выравнивает по центру по вертикали */
+    margin-top: 30px; /* Отступ сверху */
+    margin-bottom: 10px; /* Отступ снизу */
+}
+
+.history-section-header h2 {
+    margin: 0; /* Убираем стандартные отступы у h2 внутри */
+    font-size: 1.3em;
+}
+
+#clearHistoryBtn {
+    padding: 8px 15px;
+    background-color: #dc3545; /* Красный цвет для кнопки удаления */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.2s ease;
+}
+
+#clearHistoryBtn:hover {
+    background-color: #c82333;
 }
