@@ -16,12 +16,31 @@
         <div class="shape wave delay1"></div>
         <div class="shape circle delay2"></div>
         <div class="shape cloud delay3"></div>
+        <div class="shape gif-one"></div>
+        <div class="shape gif-two"></div>
     </div>
 
 <div id="header">
     <h1>Цитата дня:</h1>
-    <div id="quote"></div>
+    <div id="quote-container">
+        <div id="quote"></div>
+        <div id="author-info" class="author-info"></div>
+    </div>
 </div>
+
+<div class="filters">
+    <select id="authorSelect">
+        <option value="0">Загрузка авторов...</option>
+    </select>
+    
+    <select id="workSelect" disabled>
+        <option value="0">Выберите автора сначала</option>
+    </select>
+    
+    <button id="refreshQuote">Новая цитата</button>
+
+</div>
+
 
 <div id="content">
     <form id="textform">
@@ -33,24 +52,102 @@
         <p><strong>Точность:</strong> <span id="accuracy">0</span>%</p>
     </div>
 
+<div id="keyboard">
+    <div class="keyboard-row">
+        <div class="key" data-key="ё">ё</div>
+        <div class="key" data-key="1">1</div>
+        <div class="key" data-key="2">2</div>
+        <div class="key" data-key="3">3</div>
+        <div class="key" data-key="4">4</div>
+        <div class="key" data-key="5">5</div>
+        <div class="key" data-key="6">6</div>
+        <div class="key" data-key="7">7</div>
+        <div class="key" data-key="8">8</div>
+        <div class="key" data-key="9">9</div>
+        <div class="key" data-key="0">0</div>
+        <div class="key" data-key="-">-</div>
+        <div class="key" data-key="=">=</div>
+        <div class="key key-backspace" data-key="Backspace">Backspace</div>
+    </div>
+    <div class="keyboard-row">
+        <div class="key key-tab" data-key="Tab">Tab</div>
+        <div class="key" data-key="й">й</div>
+        <div class="key" data-key="ц">ц</div>
+        <div class="key" data-key="у">у</div>
+        <div class="key" data-key="к">к</div>
+        <div class="key" data-key="е">е</div>
+        <div class="key" data-key="н">н</div>
+        <div class="key" data-key="г">г</div>
+        <div class="key" data-key="ш">ш</div>
+        <div class="key" data-key="щ">щ</div>
+        <div class="key" data-key="з">з</div>
+        <div class="key" data-key="х">х</div>
+        <div class="key" data-key="ъ">ъ</div>
+        <div class="key" data-key="\">\</div>
+    </div>
+    <div class="keyboard-row">
+        <div class="key key-caps" data-key="CapsLock">Caps Lock</div>
+        <div class="key" data-key="ф">ф</div>
+        <div class="key" data-key="ы">ы</div>
+        <div class="key" data-key="в">в</div>
+        <div class="key" data-key="а">а</div>
+        <div class="key" data-key="п">п</div>
+        <div class="key" data-key="р">р</div>
+        <div class="key" data-key="о">о</div>
+        <div class="key" data-key="л">л</div>
+        <div class="key" data-key="д">д</div>
+        <div class="key" data-key="ж">ж</div>
+        <div class="key" data-key="э">э</div>
+        <div class="key key-enter" data-key="Enter">Enter</div>
+    </div>
+    <div class="keyboard-row">
+        <div class="key key-shift-left" data-key="Shift">Shift</div>
+        <div class="key" data-key="я">я</div>
+        <div class="key" data-key="ч">ч</div>
+        <div class="key" data-key="с">с</div>
+        <div class="key" data-key="м">м</div>
+        <div class="key" data-key="и">и</div>
+        <div class="key" data-key="т">т</div>
+        <div class="key" data-key="ь">ь</div>
+        <div class="key" data-key="б">б</div>
+        <div class="key" data-key="ю">ю</div>
+        <div class="key" data-key=".">.</div>
+        <div class="key key-shift-right" data-key="Shift">Shift</div>
+    </div>
+    <div class="keyboard-row">
+        <div class="key key-space" data-key=" ">Space</div>
+    </div>
+</div>
+
     <div class="history-section-header">
         <h2>История результатов (последние 10 попыток):</h2>
         <button id="clearHistoryBtn">Очистить историю</button>
     </div>
     
-    <table id="history">
-        <thead>
-            <tr>
-                <th>#</th>
-                <th>Скорость (сим./мин)</th>
-                <th>Точность (%)</th> </tr>
-        </thead>
-        <tbody></tbody>
-    </table>
+
+
+   <table id="history">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Скорость</th>
+            <th>Точность</th>
+            <th>Время</th>
+            <th>Автор</th>
+            <th>Произведение</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<a href="/myproject/tetris.html" class="tetris-button">Играть в Тетрис</a>
+
+<div class="previous-project">
+    <p>Наш предыдущий проект:</p>
+    <img src="sources/qr.png" alt="QR-код предыдущего проекта" class="qr-code-img">
 </div>
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<script src="quotes.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

@@ -61,8 +61,36 @@ body {
 .delay2 { animation-delay: 10s !important; }
 .delay3 { animation-delay: 15s !important; }
 
+.gif-one {
+    width: 100px; /* Размер первого GIF */
+    height: 100px;
+    background-image: url('sources/spinning-spining-cat.gif'); /* Путь к GIF */
+    background-size: contain; /* Масштабирование GIF, чтобы он помещался */
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: moveCircle 20s infinite linear; /* Используем существующую анимацию */
+    animation-delay: 2s; /* Опциональная задержка */
+    border-radius: 0; /* Чтобы GIF отображался без скруглений */
+    background-color: transparent; /* Если GIF с прозрачностью */
+    opacity: 0.8; /* Можно сделать чуть менее заметным */
+}
+
+.gif-two {
+    width: 150px; /* Размер второго GIF */
+    height: 150px;
+    background-image: url('sources/uia-cat-meme.gif'); /* Путь к GIF */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: moveWave 22s infinite linear; /* Используем другую существующую анимацию */
+    animation-delay: 8s; /* Опциональная задержка */
+    border-radius: 0;
+    background-color: transparent;
+    opacity: 0.7; /* Можно сделать чуть менее заметным */
+}
 
 /* Анимации для каждого типа фигур */
+
 
 @keyframes moveWave {
     0% {
@@ -115,8 +143,43 @@ body {
     }
 }
 
+.previous-project {
+    text-align: center; /* Выравнивание текста и изображения по центру */
+    margin-top: 30px; /* Отступ сверху от предыдущих элементов */
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    display: inline-block; /* Позволяет контейнеру обернуться вокруг содержимого */
+    margin-left: auto;
+    margin-right: auto; /* Центрирование блока на странице */
+    width: auto; /* Автоматическая ширина */
+    max-width: 250px; /* Максимальная ширина, чтобы не был слишком большим */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
 
+.previous-project p {
+    font-size: 1.1em; /* Размер шрифта для надписи */
+    color: #555;
+    margin-bottom: 10px; /* Отступ между текстом и изображением */
+}
 
+.qr-code-img {
+    max-width: 150px; /* Максимальная ширина QR-кода */
+    height: auto; /* Сохраняет пропорции */
+    display: block; /* Убирает лишние отступы снизу изображения */
+    margin: 0 auto; /* Центрирует изображение внутри .previous-project */
+}
+
+/* Можете добавить media-запросы, если нужно адаптировать для мобильных */
+@media (max-width: 768px) {
+    .previous-project {
+        max-width: 90%; /* На мобильных устройствах может быть шире */
+    }
+    .qr-code-img {
+        max-width: 120px;
+    }
+}
 
 h1 {
     font-family: 'Georgia', serif; /* Классический шрифт с засечками для заголовка */
@@ -132,6 +195,12 @@ h1 {
     padding-left: 20px;
     margin-top: 10px;
     font-style: italic; /* Курсив для цитаты */
+
+      user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    cursor: default;
 }
 
 #intext {
@@ -198,4 +267,206 @@ h1 {
 
 #clearHistoryBtn:hover {
     background-color: #c82333;
+}
+.filters {
+    margin: 20px 0;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.filters select {
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    background-color: white;
+}
+
+#refreshQuote {
+    padding: 8px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+#refreshQuote:hover {
+    background-color: #45a049;
+}
+.author-info {
+    margin-top: 10px;
+    font-size: 1.1em;
+    color: #555;
+    font-style: normal;
+    text-align: right;
+    padding-right: 20px;
+}
+
+#keyboard {
+    margin-top: 30px;
+    background: #f5f5f5;
+    border-radius: 8px;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.keyboard-row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 8px;
+}
+
+.key {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px 15px;
+    margin: 0 3px;
+    font-size: 16px;
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.1s ease;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+.key:hover {
+    background: #e9e9e9;
+}
+
+.key.active {
+    background: #4CAF50;
+    color: white;
+    transform: translateY(2px);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+}
+
+.key-backspace, .key-tab, .key-caps, .key-enter, .key-shift-left, .key-shift-right {
+    background: #e0e0e0;
+    font-weight: bold;
+}
+
+.key-space {
+    width: 60%;
+    padding: 10px 0;
+    text-align: center;
+}
+
+/* Стили для иконки Тетриса */
+#tetris-icon {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 5px 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#tetris-icon:hover {
+    background: #4CAF50;
+    color: white;
+}
+
+/* Окно Тетриса */
+#tetris-window {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+    padding: 10px;
+}
+
+#tetris-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #eee;
+}
+
+#tetris-close {
+    cursor: pointer;
+    font-size: 20px;
+}
+
+#tetris-game {
+    width: 100%;
+    height: 400px;
+    background: #f0f0f0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Затемнение фона */
+#tetris-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+/* Стили для Тетриса */
+.tetris-block {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+.tetris-block-filled {
+    background: #4CAF50;
+    border: 1px solid #388E3C;
+}
+
+#tetris-game {
+    width: 200px; /* 10 блоков * 20px */
+    height: 400px; /* 20 блоков * 20px */
+    margin: 0 auto;
+    position: relative;
+}
+
+#tetris-score {
+    margin-top: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.tetris-block {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+    transition: background-color 0.1s;
+}
+
+#tetris-game {
+    width: 200px; /* 10 блоков * 20px */
+    height: 400px; /* 20 блоков * 20px */
+    margin: 0 auto;
+    position: relative;
+    background: #f0f0f0;
+}
+
+#tetris-score {
+    margin-top: 10px;
+    text-align: center;
+    font-weight: bold;
+    color: #333;
 }
